@@ -54,6 +54,21 @@ namespace EFCore.Models
 ```
 Resumindo, o **DbSet** é usado para mapear a Entidade para um variável. O método OnConfiguring é virtual de DbContext, sendo responsável por realizar a conexão com o banco de dados.
 
+Tudo pronto, agora precisamos fazer nossa migração (Necessário ter o pacote nuget Microsoft.EntityFrameworkCore.Tools) abrindo o terminal de gerenciador de pacotes nuget:
+```
+add-migration "NomeMigration"
+```
+Após criada a migração é necessário atualizarmos a base de dados, com o comando:
+```
+update-database
+```
+
+Após isso será criado uma pasta contendo o histórico de migrações realizadas entre a aplicação e o banco de dados. Além também de o banco estar criado com sucesso!
+Informações criadas da Tabela:
+**Nome da Tabela:** Produtos;
+**Colunas criadas:** Id, Nome e Preço;
+
+
 
 ### DataBase First
 Cria as classes no domínio da aplicação por meio de um banco de dados já existente e implementado, usando comando do **EF Core**. Ou seja, os modelos criados na aplicação são criado por meio do banco de dados.
