@@ -65,7 +65,29 @@ update-database
 
 Após isso será criado uma pasta contendo o histórico de migrações realizadas entre a aplicação e o banco de dados. Além também de o banco estar criado com sucesso!
 
+#### Migrations
+Como já apresentado as Migrations é responsável por manter em sincronia o banco de dados com seus modelos do EF Core. Veja a seguir a lista de comandos das migrations:
+```
+add-migration
+drop-database
+get-dbcontext
+remove-migration
+scaffold-dbcontext
+script-migration
+update-database
+```
 
+#### DbContext
+DbContext é a classe **coração** do EntityFrameworkCore, ela é responsável por gerenciar a conexão com banco de dados, realizar operações CRUD, gerenciar o estado das mudanças das entidades, mapear os resultados das consultas SQL e fornecer um cache em memória para os objetos. Sendo assim ela é quem faz a grande parte das transações. Veja a seguir alguns métodos:
+- Método Add() - Adiciona uma nova entidade ao contexto.
+- Método AddRange() - Adiciona uma nova coleção de entidades.
+- Método Attach() - Anexa uma nova entidade ao contexto.
+- Método Entry() - Atualiza o status da entidade.
+- Método Find() - Encontra a entidade no contexto.
+- Método Remove() - Remove uma entidade do contexto.
+- Método SaveChanges() - Responsável por persistir as informações no banco de dados, registrando as informações que foram realizadas em **memória** para o banco de dados.
+- Método Set() - Cria um DbSet<>
+- Método Update() - Anexa uma entidade desconectada com estado modified.
 
 ### DataBase First
 Cria as classes no domínio da aplicação por meio de um banco de dados já existente e implementado, usando comando do **EF Core**. Ou seja, os modelos criados na aplicação são criado por meio do banco de dados.
