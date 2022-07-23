@@ -19,5 +19,46 @@ O Entity Framework Core por ser uma ferramenta de mapeamento de dados relacionas
 ### Code First
 Quando criado as classes com suas convenções e configurações no domínio da aplicação usa-se a **migração** para criar o banco de dados, tabela e os dados. Ou seja, o banco de dados é implementado por meio dos modelos criado na aplicação.
 
+Para realizar um Code First, crie a classe de referência como eu fiz em meu projeto:
+
+```csharp
+namespace EFCore.Models
+{
+    public class Produto
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public double Preço { get; set; }
+    }
+}
+```
+Após criar sua Entidade (Modelo - Classe), crie a conexão com o Banco de Dados, nessa forma:
+
+```csharp
+using Microsoft.EntityFrameworkCore;
+
+namespace EFCore.Models
+{
+    public class AppDbContext : DbContext
+    {
+        // Mapeamento da Identididade de Domínio para uma Tabela de Banco de Dados
+        public DbSet<Produto> Produtos { get; set; }
+
+        // Criando a conexão - Para criar a conexão é necessário utilizar o método virtual do DbContext (OnConfiguring)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySql("server=127.0.0.1;database=efcore_migrations;uid=otavio;pwd=1234;port=3306", ServerVersion.AutoDetect(new MySqlConnector.MySqlConnection("server=127.0.0.1;database=efcore_migrations;uid=otavio;pwd=1234;port=3306")));
+        }
+    }
+}
+```
+Resumindo, o **DbSet** é usado para mapear a Entidade para um variável. O método OnConfiguring é virtual de DbContext, sendo responsável por realizar a conexão com o banco de dados.
+
+
 ### DataBase First
 Cria as classes no domínio da aplicação por meio de um banco de dados já existente e implementado, usando comando do **EF Core**. Ou seja, os modelos criados na aplicação são criado por meio do banco de dados.
+
+# Pacotes Nuget Utilizados
+-	Pomelo.EntityFrameworkCore.MySql;
+-	Microsoft.EntityFrameworkCore;
+-	Microsoft.EntityFrameworkCore.Tools;
