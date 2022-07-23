@@ -64,9 +64,6 @@ update-database
 ```
 
 Após isso será criado uma pasta contendo o histórico de migrações realizadas entre a aplicação e o banco de dados. Além também de o banco estar criado com sucesso!
-Informações criadas da Tabela:
-**Nome da Tabela:** Produtos;
-**Colunas criadas:** Id, Nome e Preço;
 
 
 
