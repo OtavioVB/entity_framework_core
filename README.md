@@ -21,7 +21,3 @@ Quando criado as classes com suas convenções e configurações no domínio da 
 
 ### DataBase First
 Cria as classes no domínio da aplicação por meio de um banco de dados já existente e implementado, usando comando do **EF Core**. Ou seja, os modelos criados na aplicação são criado por meio do banco de dados.
-
-
-// Pomelo.EntityFrameworkCore.MySql/src/Shared/Check.cs /
-// if (value is not null && value.Length == 0)
