@@ -62,3 +62,7 @@ using (AppDbContext dbContext = new AppDbContext())
     }
 }
 ```
+
+
+### Observações
+É possível mesclar várias operações juntas, caso elas não se afetam. Em caso de erro, o Entity Framework Core dara um RollBack e não realizará nenhuma das alterações.
