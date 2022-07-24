@@ -92,6 +92,9 @@ DbContext é a classe **coração** do EntityFrameworkCore, ela é responsável 
 ### DataBase First
 Cria as classes no domínio da aplicação por meio de um banco de dados já existente e implementado, usando comando do **EF Core**. Ou seja, os modelos criados na aplicação são criado por meio do banco de dados.
 
+# Conclusão
+Em síntese, podemos dizer que o Entity Framework Core é um poupador de **tempo**, já que facilmente conseguimos obter informações das entidades sem precisar converter dados de uma DataTable ou outros tipos de retorno de Banco de Dados. Além disso, ele é responsável por manter o banco de dados o mais próximo da orientação a objetos, já que ele faz o chamado de Object-Relational Mapping por meio das migrações e métodos.
+
 # Pacotes Nuget Utilizados
 -	Pomelo.EntityFrameworkCore.MySql;
 -	Microsoft.EntityFrameworkCore;
